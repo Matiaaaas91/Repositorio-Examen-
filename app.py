@@ -1,12 +1,29 @@
 
 # funciones de validacion que se utilizaarn 
-def validar_codigo(codigo, productos): pass
-def validar_nombre(nombre): pass
-def validar_categoria(categoria): pass
-def validar_precio(precio): pass
-def validar_disponible(opcion): pass
-def validar_stock(stock): pass
-def validar_vendidos(vendidos): pass
+def validar_codigo(codigo, productos):
+    codigo_limpio = codigo.strip().upper()
+    if codigo_limpio == "":
+        return False
+    return codigo_limpio not in [k.upper() for k in productos.keys()]
+
+def validar_nombre(nombre):
+    return nombre.strip() != ""
+
+def validar_categoria(categoria):
+    return categoria.strip() != ""
+
+def validar_precio(precio):
+    return precio > 0
+
+def validar_disponible(opcion):
+    return opcion.strip().lower() in ['s', 'n']
+
+def validar_stock(stock):
+    return stock >= 0
+
+def validar_vendidos(vendidos):
+    return vendidos >= 0
+
 
 # funciones logicas que se utilizaran para cada opciopn del menu
 def buscar_codigo(codigo, productos): pass
